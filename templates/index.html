@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODO アプリ</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📝 TODO アプリ</h1>
+        </header>
+
+        <div class="add-todo-section">
+            <h2>新しいTODOを追加</h2>
+            <form id="todo-form">
+                <div class="form-group">
+                    <label for="title">タイトル *</label>
+                    <input type="text" id="title" name="title" required placeholder="タイトルを入力">
+                </div>
+                <div class="form-group">
+                    <label for="description">説明</label>
+                    <textarea id="description" name="description" rows="3" placeholder="詳細を入力（オプション）"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">追加</button>
+            </form>
+        </div>
+
+        <div class="todos-section">
+            <h2>TODO リスト</h2>
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">すべて</button>
+                <button class="filter-btn" data-filter="active">未完了</button>
+                <button class="filter-btn" data-filter="completed">完了済み</button>
+            </div>
+            <div id="todos-list" class="todos-list">
+                <p class="loading">読み込み中...</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
